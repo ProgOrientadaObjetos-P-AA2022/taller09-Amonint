@@ -51,5 +51,18 @@ public class PrestamoEducativo extends Prestamo{
     public void setValormensualp(double valormensualp) {
         this.valormensualp = valormensualp;
     }
+    public String toString() {
+        String cadenaFinal = String.format("%s", super.toString());
+        cadenaFinal = String.format("%s\n"
+                + "Costo Asignatura: %.2f\n"
+                + "Número de Asignaturas: %d\n"
+                + "Total Matricula: %.2f\n",
+                cadenaFinal,
+                getNivelestudio(),
+                getCentroeducativo(),
+                getValorcarrera(),getValormensualp());
+
+        return cadenaFinal;
+    }
 
 }
