@@ -56,13 +56,13 @@ public class PrestamoAutomovil extends Prestamo {
         this.tipoautomovil = tipoautomovil;
     }
 
-    public double getValormensualpago() {
-        return valormensualpago;
+    
+    public void calcularmensualpago() {
+        double valorc = 0;
+        valorc = valorauto  / tiempoPrestamo;
+        valormensualpago = valorc;
     }
 
-    public void setValormensualpago(double valormensualpago) {
-        this.valormensualpago = valormensualpago;
-    }
 
     public String toString() {
         String cadenaFinal = String.format("%s", super.toString());
@@ -73,7 +73,7 @@ public class PrestamoAutomovil extends Prestamo {
                 cadenaFinal,
                 getMarca(),
                 getValorauto(),
-                getGarante(),getTipoautomovil(),getValormensualpago());
+                getGarante(),getTipoautomovil());
 
         return cadenaFinal;
     }

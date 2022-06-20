@@ -5,11 +5,13 @@
  */
 package paquete1;
 
+
 import java.util.Locale;
 import java.util.Scanner;
 
 import paquete3.PrestamoAutomovil;
 import paquete4.PrestamoEducativo;
+import paquete2.*;
 
 /**
  *
@@ -50,19 +52,24 @@ public class Ejecutor {
                     automovil1.setGarante(entrada.nextLine());
                     System.out.println("Ingrese el garante: ");
                     automovil1.setGarante(entrada.nextLine());
-                    
+                    automovil1.calcularmensualpago();
+                    System.out.printf("%s\n", automovil1);
                     break;
+                    
                 case 2:
-                    PrestamoEducativo docenteF = new DocenteFactura();
-                    docenteF.establecerNombres(nombres);
-                    docenteF.establecerId(cedula);
+                    PrestamoEducativo prestamoEducativo = new PrestamoEducativo(cedula, cedula, op, op);
+                    /* prestamoEducativo.establecerNombres(nombres);
+                    prestamoEducativo.establecerId(cedula); */
 
-                    System.out.println("Ingrese el Valor de Factura: ");
-                    docenteF.establecerValorFactura(entrada.nextFloat());
-                    System.out.println("Ingrese el descuento porcentaje iva: ");
-                    docenteF.establecerValorFactura(entrada.nextFloat());
-                    docenteF.obtenerValorCancelar();
-                    System.out.printf("%s\n", docenteF);
+                    System.out.println("Nivel de Estudio: ");
+                    prestamoEducativo.setNivelestudio(entrada.nextLine());
+                    System.out.println("Ingrese el centro Educativo: ");
+                    prestamoEducativo.setCentroeducativo(entrada.nextLine());
+                    System.out.println("Ingrese el valor de la carrera: ");
+                    prestamoEducativo.setValorcarrera(entrada.nextDouble());
+        
+                    prestamoEducativo.calcularmensualpago();
+                    System.out.printf("%s\n", prestamoEducativo);
                     break;
                 default: break;
             }

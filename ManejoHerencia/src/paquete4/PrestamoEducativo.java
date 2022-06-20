@@ -45,11 +45,11 @@ public class PrestamoEducativo extends Prestamo{
     public void setValorcarrera(double valorcarrera) {
         this.valorcarrera = valorcarrera;
     }
-     public double getValormensualp() {
-        return valormensualp;
-    }
-    public void setValormensualp(double valormensualp) {
-        this.valormensualp = valormensualp;
+     
+    public void calcularmensualpago() {
+        double valorc = 0;
+        valorc = valorcarrera  / tiempoPrestamo;
+        valormensualp = valorc;
     }
     public String toString() {
         String cadenaFinal = String.format("%s", super.toString());
@@ -60,7 +60,7 @@ public class PrestamoEducativo extends Prestamo{
                 cadenaFinal,
                 getNivelestudio(),
                 getCentroeducativo(),
-                getValorcarrera(),getValormensualp());
+                getValorcarrera());
 
         return cadenaFinal;
     }
